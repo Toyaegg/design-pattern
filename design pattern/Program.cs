@@ -26,7 +26,10 @@ namespace design_pattern
             //Bridge();//桥
             //Composite();//组合
             //Decorator();//装饰
-            Facade();//外观
+            //Facade();//外观
+            //Flyweight();//享元
+            //Delegate();//代理
+            ChainOfResponsibility();//职责链
             Console.ReadLine();
         }
 
@@ -222,7 +225,56 @@ namespace design_pattern
 
         static void Facade()
         {
-            
+            FacadeIn facade = new FacadeIn();
+            FacadeA facadeA = new FacadeA();
+            FacadeB facadeB = new FacadeB();
+            facade.FacadeMethod();
+            facadeA.FacadeMethod();
+            facadeB.FacadeMethod();
+        }
+
+        static void Flyweight()
+        {
+            //对象池类似
+            FlyweightFactory ff = new FlyweightFactory();
+
+            Flyweight flyweight1 = ff.GetFlyweight("pp1");
+            Flyweight flyweight2 = ff.GetFlyweight("pp2");
+            Flyweight flyweight3 = ff.GetFlyweight("pp2");
+
+            Console.WriteLine(flyweight2 == flyweight3);
+            //有外部状态的享元
+            OutState os1 = new OutState("QAQ");
+            flyweight1.FwOp(os1); 
+            OutState os2 = new OutState("OvO");
+            flyweight2.FwOp(os2);
+
+            //复合享元
+            Flyweight fw = new ConcreteFlyweight("pp");
+            Flyweight fwd = new ConcreteFlyweight("ppd");
+            CompositeFlyWeight cff = new CompositeFlyWeight();
+
+            cff.Add(fw);
+            cff.Add(fw);
+            cff.Remove(fw);
+
+            cff.FwOp(os1);
+        }
+
+        static void Delegate()
+        {
+            //简单
+            Proxy proxy = new Proxy();
+            proxy.Request();
+            Console.WriteLine("--------------------------\n------------------------");
+            //实例
+            ISeacher seacher = (ISeacher) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ProxySearcher");
+            seacher.DoSearch("QAQ", "OvO");
+        }
+
+        static void ChainOfResponsibility()
+        {
+            c_o_r c = new c_o_r();
         }
     }
 }
