@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
@@ -29,7 +30,8 @@ namespace design_pattern
             //Facade();//外观
             //Flyweight();//享元
             //Delegate();//代理
-            ChainOfResponsibility();//职责链
+            //ChainOfResponsibility();//职责链
+            Command();//命令
             Console.ReadLine();
         }
 
@@ -274,7 +276,45 @@ namespace design_pattern
 
         static void ChainOfResponsibility()
         {
-            c_o_r c = new c_o_r();
+            //实例化对象
+            Approver a, b, c, d, e;
+            a = new AA("【a】");
+            b = new BB("【b】");
+            c = new CC("【c】");
+            d = new DD("【d】");
+
+            //新加的对象
+            e = new EE("【e】");
+
+            //创建职责链
+            //a.SetSuccessor(b);
+            //新职责链
+            a.SetSuccessor(e);
+            e.SetSuccessor(b);
+            b.SetSuccessor(c);
+            c.SetSuccessor(d);
+
+            //创建订单
+            PurchaseRequest A, B, C, D, E;
+            A = new PurchaseRequest(46600,10001,"A");
+            B = new PurchaseRequest(80000, 10002, "B");
+            C = new PurchaseRequest(406600, 10003, "C");
+            D = new PurchaseRequest(4666600, 10004, "D");
+            //新加的订单
+            E = new PurchaseRequest(66600, 10005, "E");
+
+            //分派任务
+            a.ProcessRequest(A);
+            a.ProcessRequest(B);
+            a.ProcessRequest(C);
+            a.ProcessRequest(D);
+            //分派新任务
+            a.ProcessRequest(E);
+        }
+
+        static void Command()
+        {
+
         }
     }
 }

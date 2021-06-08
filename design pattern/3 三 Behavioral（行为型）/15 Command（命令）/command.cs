@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace design_pattern
 {
-    class c_o_r
+    class command
     {
+
     }
+
+
 }

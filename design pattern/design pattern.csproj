@@ -43,24 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="03 AbstractFactory（抽象工厂）\abstractf.cs" />
-    <Compile Include="04 Builder（建造者）\builder.cs" />
-    <Compile Include="05 Prototype（原型）\prototype.cs" />
-    <Compile Include="06 Singleton（单例）\singleton.cs" />
-    <Compile Include="07 Adapter（适配器）\Adapter.cs" />
-    <Compile Include="08 Bridge（桥）\bridge.cs" />
-    <Compile Include="09 Composite（组合）\composite.cs" />
-    <Compile Include="10 Decorator（装饰）\decorator.cs" />
-    <Compile Include="11 Facade（外观）\facade.cs" />
-    <Compile Include="12 Flyweight（享元）\flyweight.cs" />
-    <Compile Include="13 Delegate（代理）\delegate.cs" />
-    <Compile Include="14 ChainOfResponsibility（职责链）\c_o_r.cs" />
+    <Compile Include="1 一 Creational（创建型）\03 AbstractFactory（抽象工厂）\abstractf.cs" />
+    <Compile Include="1 一 Creational（创建型）\04 Builder（建造者）\builder.cs" />
+    <Compile Include="1 一 Creational（创建型）\05 Prototype（原型）\prototype.cs" />
+    <Compile Include="1 一 Creational（创建型）\06 Singleton（单例）\singleton.cs" />
+    <Compile Include="2 二 Structural（结构型）\07 Adapter（适配器）\Adapter.cs" />
+    <Compile Include="2 二 Structural（结构型）\08 Bridge（桥）\bridge.cs" />
+    <Compile Include="2 二 Structural（结构型）\09 Composite（组合）\composite.cs" />
+    <Compile Include="2 二 Structural（结构型）\10 Decorator（装饰）\decorator.cs" />
+    <Compile Include="2 二 Structural（结构型）\11 Facade（外观）\facade.cs" />
+    <Compile Include="2 二 Structural（结构型）\12 Flyweight（享元）\flyweight.cs" />
+    <Compile Include="2 二 Structural（结构型）\13 Delegate（代理）\delegate.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\14 ChainOfResponsibility（职责链）\c_o_r.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\15 Command（命令）\command.cs" />
     <Compile Include="CommonUtils\binaryAbout.cs" />
     <Compile Include="CommonUtils\Utils.cs" />
-    <Compile Include="02 FactoryMethod（工厂方法）\factorym.cs" />
+    <Compile Include="1 一 Creational（创建型）\02 FactoryMethod（工厂方法）\factorym.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="01 SimpleFactory（简单工厂）\simplef.cs" />
+    <Compile Include="1 一 Creational（创建型）\01 SimpleFactory（简单工厂）\simplef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
