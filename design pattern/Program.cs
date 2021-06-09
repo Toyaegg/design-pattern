@@ -31,7 +31,9 @@ namespace design_pattern
             //Flyweight();//享元
             //Delegate();//代理
             //ChainOfResponsibility();//职责链
-            Command();//命令
+            //Command();//命令
+            //Interpreter();//解释器
+            Iterater();//迭代器
             Console.ReadLine();
         }
 
@@ -323,6 +325,24 @@ namespace design_pattern
             fb.Command = (Command) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "EComman");
 
             fb.Click();
+        }
+
+
+        static void Interpreter()
+        {
+            string instruction = "down run 90 and left move 20 and up move 5";
+
+            InterpreterHandler handle = new InterpreterHandler();
+            handle.Handle(instruction);
+
+            string outstr = handle.Output();
+
+            Console.WriteLine(outstr);
+        }
+
+        static void Iterater()
+        {
+
         }
     }
 }
