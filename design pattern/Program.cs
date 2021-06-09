@@ -314,7 +314,15 @@ namespace design_pattern
 
         static void Command()
         {
+            FunButton fb = new FunButton();
 
+            fb.Command = (Command) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "HComman");
+
+            fb.Click();
+
+            fb.Command = (Command) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "EComman");
+
+            fb.Click();
         }
     }
 }
