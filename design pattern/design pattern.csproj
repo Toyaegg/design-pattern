@@ -57,7 +57,7 @@
     <Compile Include="3 三 Behavioral（行为型）\14 ChainOfResponsibility（职责链）\c_o_r.cs" />
     <Compile Include="3 三 Behavioral（行为型）\15 Command（命令）\command.cs" />
     <Compile Include="3 三 Behavioral（行为型）\16 Interpreter（解释器）\interpreter.cs" />
-    <Compile Include="3 三 Behavioral（行为型）\17 Iterater（迭代器）\iterate.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\17 Iterator（迭代器）\iterator.cs" />
     <Compile Include="CommonUtils\binaryAbout.cs" />
     <Compile Include="CommonUtils\Utils.cs" />
     <Compile Include="1 一 Creational（创建型）\02 FactoryMethod（工厂方法）\factorym.cs" />

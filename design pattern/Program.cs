@@ -342,7 +342,53 @@ namespace design_pattern
 
         static void Iterater()
         {
+            List<object> producks = new List<object>();
 
+            producks.Add("AAA");
+            producks.Add("BBB");
+            producks.Add("CCC");
+            producks.Add("DDD");
+            producks.Add("EEE");
+            producks.Add("FFF");
+
+            AbsObjList list;
+            IAbsIterator iterator;
+
+            list = new ProductList(producks);
+            iterator = list.CreateIterator();
+
+            Console.WriteLine("正向");
+            while (!iterator.IsLast())
+            {
+                Console.Write(iterator.GetNextItem() + " ");
+                iterator.Next();
+            }
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("反向");
+            while (!iterator.IsFirst())
+            {
+                Console.Write(iterator.GetPreviousItem() + " ");
+                iterator.Previous();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("正向");
+            while (!iterator.IsLast())
+            {
+                Console.Write(iterator.GetNextItem() + " ");
+                iterator.Next();
+            }
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("反向");
+            while (!iterator.IsFirst())
+            {
+                Console.Write(iterator.GetPreviousItem() + " ");
+                iterator.Previous();
+            }
         }
     }
 }
