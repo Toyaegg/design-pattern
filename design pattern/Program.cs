@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
@@ -33,7 +34,8 @@ namespace design_pattern
             //ChainOfResponsibility();//职责链
             //Command();//命令
             //Interpreter();//解释器
-            Iterater();//迭代器
+            //Iterater();//迭代器
+            Mediator();//中介者
             Console.ReadLine();
         }
 
@@ -364,31 +366,58 @@ namespace design_pattern
                 iterator.Next();
             }
             Console.WriteLine();
-            Console.WriteLine("--------------------------------------------");
             Console.WriteLine("反向");
             while (!iterator.IsFirst())
             {
                 Console.Write(iterator.GetPreviousItem() + " ");
                 iterator.Previous();
+            }
+            Console.WriteLine();
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine();
+
+            // ////////////////////////////////////////////内部类实现迭代器/////////////////////////////////////////////////
+
+            AbsObjListNew listNew;
+            IAbsIterator iteratorNew;
+
+            listNew = new ProductListNew(producks);
+            iteratorNew = listNew.CreateIterator();
+
+            Console.WriteLine("正向");
+            while (!iteratorNew.IsLast())
+            {
+                Console.Write(iteratorNew.GetNextItem() + " ");
+                iteratorNew.Next();
+            }
+            Console.WriteLine();
+            Console.WriteLine("反向");
+            while (!iteratorNew.IsFirst())
+            {
+                Console.Write(iteratorNew.GetPreviousItem() + " ");
+                iteratorNew.Previous();
             }
 
             Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("正向");
-            while (!iterator.IsLast())
-            {
-                Console.Write(iterator.GetNextItem() + " ");
-                iterator.Next();
-            }
-            Console.WriteLine();
             Console.WriteLine("--------------------------------------------");
-            Console.WriteLine("反向");
-            while (!iterator.IsFirst())
-            {
-                Console.Write(iterator.GetPreviousItem() + " ");
-                iterator.Previous();
-            }
+            Console.WriteLine();
+
+            // //////////////////////////////////////////.NET内置迭代器使用示例//////////////////////////////////////////////////////
+            IList pList = new ArrayList();
+
+            pList.Add("AAA");
+            pList.Add("BBB");
+            pList.Add("CCC");
+            pList.Add("DDD");
+            pList.Add("EEE");
+            pList.Add("FFF");
+
+            EnumTest.Process(pList);
+        }
+
+        static void Mediator()
+        {
+
         }
     }
 }
