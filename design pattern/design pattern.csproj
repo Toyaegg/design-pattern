@@ -59,6 +59,7 @@
     <Compile Include="3 三 Behavioral（行为型）\16 Interpreter（解释器）\interpreter.cs" />
     <Compile Include="3 三 Behavioral（行为型）\17 Iterator（迭代器）\iterator.cs" />
     <Compile Include="3 三 Behavioral（行为型）\18 Mediator（中介者）\mediator.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\19 Memento（备忘录）\memento.cs" />
     <Compile Include="CommonUtils\binaryAbout.cs" />
     <Compile Include="CommonUtils\Utils.cs" />
     <Compile Include="1 一 Creational（创建型）\02 FactoryMethod（工厂方法）\factorym.cs" />

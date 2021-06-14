@@ -18,24 +18,25 @@ namespace design_pattern
 
         static void Main(string[] args)
         {
-            //SimpleFactory();//简单工厂
-            //FactoryMethod();//工厂方法
-            //AbstractFactory();//抽象工厂
-            //Builder();//建造者
-            //Prototype();//原型
-            //Singleton();//单例
-            //Adapter();//适配器
-            //Bridge();//桥
-            //Composite();//组合
-            //Decorator();//装饰
-            //Facade();//外观
-            //Flyweight();//享元
-            //Delegate();//代理
-            //ChainOfResponsibility();//职责链
-            //Command();//命令
-            //Interpreter();//解释器
-            //Iterater();//迭代器
-            Mediator();//中介者
+            //SimpleFactory();//01简单工厂
+            //FactoryMethod();//02工厂方法
+            //AbstractFactory();//03抽象工厂
+            //Builder();//04建造者
+            //Prototype();//05原型
+            //Singleton();//06单例
+            //Adapter();//07适配器
+            //Bridge();//08桥
+            //Composite();//09组合
+            //Decorator();//10装饰
+            //Facade();//11外观
+            //Flyweight();//12享元
+            //Delegate();//13代理
+            //ChainOfResponsibility();//14职责链
+            //Command();//15命令
+            //Interpreter();//16解释器
+            //Iterater();//17迭代器
+            //Mediator();//18中介者
+            Memento();//19备忘录
             Console.ReadLine();
         }
 
@@ -416,6 +417,39 @@ namespace design_pattern
         }
 
         static void Mediator()
+        {
+            //ConcreteMediator mediator = new ConcreteMediator();
+            NewMediator mediator = new NewMediator();
+
+            MButton addButton = new MButton();
+            MList list = new MList();
+            MComboBox cb = new MComboBox();
+            MTextBox userTextBox = new MTextBox();
+
+            MLabel label = new MLabel();
+
+            addButton.SetMediator(mediator);
+            list.SetMediator(mediator);
+            cb.SetMediator(mediator);
+            userTextBox.SetMediator(mediator);
+
+            label.SetMediator(mediator);
+
+            mediator.addButton = addButton;
+            mediator.list = list;
+            mediator.cb = cb;
+            mediator.UserTextBox = userTextBox;
+
+            mediator.label = label;
+
+            addButton.Changed();
+
+            Console.WriteLine("------------------------------");
+
+            list.Changed();
+        }
+
+        static void Memento()
         {
 
         }

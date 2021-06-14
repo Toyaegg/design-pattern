@@ -98,14 +98,14 @@ namespace design_pattern
     //具体业务类
     class ConcreAbsAdapterA :　AbsAdapter
     {
-        public void AbsA()
+        public new void AbsA()
         {
             Console.WriteLine("ConcreAbsAdapterA");
         }
     }
     class ConcreAbsAdapterB : AbsAdapter
     {
-        public void AbsB()
+        public new void AbsB()
         {
             Console.WriteLine("ConcreAbsAdapterB");
         }
