@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace design_pattern
 {
-    class state
+    //环境类
+    class Account
     {
+
     }
 }
