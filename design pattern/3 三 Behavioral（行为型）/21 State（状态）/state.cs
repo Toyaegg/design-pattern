@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace design_pattern
+{
     class state
     {
     }
