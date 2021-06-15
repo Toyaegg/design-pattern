@@ -62,6 +62,9 @@
     <Compile Include="3 三 Behavioral（行为型）\19 Memento（备忘录）\memento.cs" />
     <Compile Include="3 三 Behavioral（行为型）\20 Observer（观察者）\observer.cs" />
     <Compile Include="3 三 Behavioral（行为型）\21 State（状态）\state.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\22 Strategy（策略）\strategy.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\23 TemplateMethod（模板方法）\template_method.cs" />
+    <Compile Include="3 三 Behavioral（行为型）\24 Visitor（访问者）\visitor.cs" />
     <Compile Include="CommonUtils\binaryAbout.cs" />
     <Compile Include="CommonUtils\Utils.cs" />
     <Compile Include="1 一 Creational（创建型）\02 FactoryMethod（工厂方法）\factorym.cs" />

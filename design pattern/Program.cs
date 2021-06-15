@@ -42,10 +42,13 @@ namespace design_pattern
             //Mediator();//18中介者
             //Memento();//19备忘录
             //Observer();//20观察者
-            State();//21状态
+            //State();//21状态
+            Strategy();//22策略
+            TemplateMethod();//23模板方法
+            Visitor();//24访问者
             Console.ReadLine();
         }
-
+        //1-5
         #region SimpleFactory
 
         static void SimpleFactory()
@@ -167,7 +170,7 @@ namespace design_pattern
         }
 
         #endregion
-
+        //6-10
         #region Singleton
 
         static void Singleton()
@@ -267,7 +270,7 @@ namespace design_pattern
         }
 
         #endregion
-
+        //11-15
         #region Facade
         static void Facade()
         {
@@ -382,7 +385,7 @@ namespace design_pattern
         }
 
         #endregion
-
+        //16-20
         #region Interpreter
         static void Interpreter()
         {
@@ -609,7 +612,7 @@ namespace design_pattern
         }
 
         #endregion
-
+        //21-24
         #region State
 
         static void State()
@@ -644,9 +647,28 @@ namespace design_pattern
         }
 
         #endregion
-        #region 
+        # region Strategy
 
+        static void Strategy()
+        {
 
+        }
+
+        #endregion
+        #region TemplateMethod
+
+        static void TemplateMethod()
+        {
+
+        }
+
+        #endregion
+        #region Visitor
+
+        static void Visitor()
+        {
+
+        }
 
         #endregion
     }
