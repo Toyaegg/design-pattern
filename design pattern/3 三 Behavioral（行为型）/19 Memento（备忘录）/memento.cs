@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace design_pattern
 {
+    //原发器
     public class Chessman
     {
         private string label;
@@ -68,7 +69,7 @@ namespace design_pattern
             Y = memento.Y;
         }
     }
-
+    //备忘录
     internal class ChessmanMemento
     {
         private string label;
@@ -118,7 +119,7 @@ namespace design_pattern
             this.y = y;
         }
     }
-
+    //负责人
     //public class MementoCaretaker
     //{
     //    private ChessmanMemento memento;

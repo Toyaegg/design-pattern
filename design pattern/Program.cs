@@ -41,7 +41,8 @@ namespace design_pattern
             //Iterater();//17迭代器
             //Mediator();//18中介者
             //Memento();//19备忘录
-            Observer();//20观察者
+            //Observer();//20观察者
+            State();//21状态
             Console.ReadLine();
         }
 
@@ -512,6 +513,54 @@ namespace design_pattern
         #endregion
 
         static void Observer()
+        {
+            AllyControlCenter acc = new ConcreteAllyControlCenter("ppppp");
+
+            OObserver p1, p2, p3, p4, p5;
+
+            p1 = new Player("AA");
+            acc.Join(p1);
+
+            p2 = new Player("BB");
+            acc.Join(p2);
+
+            p3 = new Player("CC");
+            acc.Join(p3);
+
+            p4 = new Player("DD");
+            acc.Join(p4);
+
+            p5 = new Player("EE");
+            acc.Join(p5);
+
+            p1.BeAttacked(acc);
+                
+            TestEvent test = new TestEvent();
+            Program program = new Program(test);
+            test.Method();
+        }
+
+        #region Observer
+
+        public Program(TestEvent test)
+        {
+            test.OnUserInput += new TestEvent.UserInput(Handler);
+            test.OnUserInput += new TestEvent.UserInput(HandlerMore);
+        }
+
+        public void Handler(object sender, EventArgs e)
+        {
+            Console.WriteLine("数据输入结束！");
+        }
+
+        public void HandlerMore(object sender, EventArgs e)
+        {
+            Console.WriteLine("真的结束了！");
+        }
+
+        #endregion
+
+        static void State()
         {
 
         }
