@@ -708,7 +708,9 @@ namespace design_pattern
 
         static void Visitor()
         {
-
+            EmployeeList list = new EmployeeList();
+            Employee fte1, fte2, fte3, pte1, pte2;
+            fte1 = new FulltimeEmployee("AA",3200f,45);
         }
 
         #endregion
