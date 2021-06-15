@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using static design_pattern.ChessPlay;
 
 namespace design_pattern
 {
@@ -15,6 +16,9 @@ namespace design_pattern
     {
         const string CXJStr = "design pattern";
         const string nameSpaceStr = "design_pattern.";
+
+        public static int index = -1;
+        public static MementoCaretaker mc = new MementoCaretaker();
 
         static void Main(string[] args)
         {
@@ -36,7 +40,8 @@ namespace design_pattern
             //Interpreter();//16解释器
             //Iterater();//17迭代器
             //Mediator();//18中介者
-            Memento();//19备忘录
+            //Memento();//19备忘录
+            Observer();//20观察者
             Console.ReadLine();
         }
 
@@ -450,6 +455,63 @@ namespace design_pattern
         }
 
         static void Memento()
+        {
+            //MementoCaretaker mc = new MementoCaretaker();
+            //Chessman chess = new Chessman("车",1,1);
+            //ChessDisplay(chess);
+            //mc.SetMemento(chess.Save());
+            //chess.Y = 4;
+            //ChessDisplay(chess);
+            //mc.SetMemento(chess.Save());
+            //ChessDisplay(chess);
+            //chess.X = 5;
+            //ChessDisplay(chess);
+            //Console.WriteLine("------------悔棋-----------");
+            //chess.Restore(mc.GetMemento());
+            //ChessDisplay(chess);
+
+            Chessman chess = new Chessman("车", 1, 1);
+            Play(chess);
+            chess.Y = 4;
+            Play(chess);
+            chess.X = 5;
+            Play(chess);
+
+            Undo(chess, index);
+            Undo(chess, index);
+            Redo(chess, index);
+            Redo(chess, index);
+        }
+
+        #region Memento
+
+
+        public static void Play(Chessman chess)
+        {
+            mc.SetMemento(chess.Save());
+            index++;
+            ChessDisplay(chess);
+        }
+
+        public static void Undo(Chessman chess, int i)
+        {
+            Console.WriteLine("------------悔棋-----------");
+            index--;
+            chess.Restore(mc.GetMemento(i - 1));
+            ChessDisplay(chess);
+        }
+
+        public static void Redo(Chessman chess, int i)
+        {
+            Console.WriteLine("------------撤销悔棋-----------");
+            index++;
+            chess.Restore(mc.GetMemento(i + 1));
+            ChessDisplay(chess);
+        }
+
+        #endregion
+
+        static void Observer()
         {
 
         }
