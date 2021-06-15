@@ -692,7 +692,15 @@ namespace design_pattern
 
         static void TemplateMethod()
         {
+            TMAccount account = (CurrentAccount) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "CurrentAccount");
+            account.Handle("AA","123456");
+            account = (SavingAccount)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "SavingAccount");
+            account.Handle("AA", "123456");
 
+            //////////////////////////////////////////////钩子方法使用//////////////////////////////////////////////////
+
+            DataViewer dv = new XMLDataViewer();
+            dv.Process();
         }
 
         #endregion
