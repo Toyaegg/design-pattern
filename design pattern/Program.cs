@@ -46,6 +46,8 @@ namespace design_pattern
             Console.ReadLine();
         }
 
+        #region SimpleFactory
+
         static void SimpleFactory()
         {
             Product product;
@@ -60,6 +62,9 @@ namespace design_pattern
             product.MethodSame();
             product.MethodDiff();
         }
+
+        #endregion
+        #region FactoryMethod
 
         static void FactoryMethod()
         {
@@ -77,12 +82,15 @@ namespace design_pattern
             //product.MethodDiff();
 
             //在XML文档中记录类名，通过反射的方法生成对象，隐藏工厂方法，引用System.Reflection
-            factory = (Factory) Assembly.Load(CXJStr/*程序集名称*/).CreateInstance(nameSpaceStr + "AFactory"/*命名空间.类名*/);
+            factory = (Factory)Assembly.Load(CXJStr/*程序集名称*/).CreateInstance(nameSpaceStr + "AFactory"/*命名空间.类名*/);
             factory.FactoryMethod();
 
-            factory = (Factory) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "BFactory");
+            factory = (Factory)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "BFactory");
             factory.FactoryMethod();
         }
+
+        #endregion
+        #region AbstractFactory
 
         static void AbstractFactory()
         {
@@ -90,18 +98,21 @@ namespace design_pattern
             AbsProductA pa;
             AbsProductB pb;
 
-            factoy = (AbsFactory) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "AbsAFactory");
+            factoy = (AbsFactory)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "AbsAFactory");
             pa = factoy.CProductA();
             pb = factoy.CProductB();
             pa.Show();
             pb.Show();
 
-            factoy = (AbsFactory) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "AbsBFactory");
+            factoy = (AbsFactory)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "AbsBFactory");
             pa = factoy.CProductA();
             pb = factoy.CProductB();
             pa.Show();
             pb.Show();
         }
+
+        #endregion
+        #region Builder
 
         static void Builder()
         {
@@ -110,7 +121,7 @@ namespace design_pattern
             Director director = new Director();
             BuilderProduct builderProduct;
 
-            builder = (Builder) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "HBuilder");
+            builder = (Builder)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "HBuilder");
             builderProduct = director.Construct(builder);
             Console.WriteLine(builderProduct.A);
             Console.WriteLine(builderProduct.B);
@@ -124,6 +135,9 @@ namespace design_pattern
             Console.WriteLine(builderProduct.C);
             Console.WriteLine(builderProduct.D);
         }
+
+        #endregion
+        #region Prototype
 
         static void Prototype()
         {
@@ -146,11 +160,15 @@ namespace design_pattern
             //深克隆
             CPrototypeC prototypeC, copyC;
             prototypeC = new CPrototypeC();
-            copyC = (CPrototypeC) prototypeC.Clone();
+            copyC = (CPrototypeC)prototypeC.Clone();
             Console.WriteLine("----C----");
             Console.WriteLine(prototypeC == copyC);
             Console.WriteLine(prototypeC.Member == copyC.Member);
         }
+
+        #endregion
+
+        #region Singleton
 
         static void Singleton()
         {
@@ -174,34 +192,43 @@ namespace design_pattern
             }
         }
 
+        #endregion
+        #region Adapter
+
         static void Adapter()
         {
             AdapterMe adapterMe;
-            adapterMe = (AdapterMe) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "AdapterMe");
+            adapterMe = (AdapterMe)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "AdapterMe");
             adapterMe.add();
             adapterMe.pp();
 
             ConcreAbsAdapterA absAdapterA;
-            absAdapterA = (ConcreAbsAdapterA) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ConcreAbsAdapterA");
+            absAdapterA = (ConcreAbsAdapterA)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ConcreAbsAdapterA");
             absAdapterA.AbsA();
             absAdapterA.AbsB();
             ConcreAbsAdapterB absAdapterB;
-            absAdapterB = (ConcreAbsAdapterB) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ConcreAbsAdapterB");
+            absAdapterB = (ConcreAbsAdapterB)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ConcreAbsAdapterB");
             absAdapterB.AbsA();
             absAdapterB.AbsB();
         }
+
+        #endregion
+        #region Bridge
 
         static void Bridge()
         {
             Image image;
             ImageImp imp;
 
-            image = (Image) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "GIF");
+            image = (Image)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "GIF");
             imp = (ImageImp)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "WinImp");
 
             image.SetImageImp(imp);
             image.ParseFile("ddddd");
         }
+
+        #endregion
+        #region Composite
 
         static void Composite()
         {
@@ -225,6 +252,9 @@ namespace design_pattern
             fd7.KillVirus();
         }
 
+        #endregion
+        #region Decorator
+
         static void Decorator()
         {
             VisualComponent component, componentSB, componentBB;
@@ -236,6 +266,9 @@ namespace design_pattern
             componentBB.Display();
         }
 
+        #endregion
+
+        #region Facade
         static void Facade()
         {
             FacadeIn facade = new FacadeIn();
@@ -245,6 +278,10 @@ namespace design_pattern
             facadeA.FacadeMethod();
             facadeB.FacadeMethod();
         }
+
+
+        #endregion
+        #region Flyweight
 
         static void Flyweight()
         {
@@ -258,7 +295,7 @@ namespace design_pattern
             Console.WriteLine(flyweight2 == flyweight3);
             //有外部状态的享元
             OutState os1 = new OutState("QAQ");
-            flyweight1.FwOp(os1); 
+            flyweight1.FwOp(os1);
             OutState os2 = new OutState("OvO");
             flyweight2.FwOp(os2);
 
@@ -274,6 +311,9 @@ namespace design_pattern
             cff.FwOp(os1);
         }
 
+        #endregion
+        #region Delegate
+
         static void Delegate()
         {
             //简单
@@ -281,9 +321,12 @@ namespace design_pattern
             proxy.Request();
             Console.WriteLine("--------------------------\n------------------------");
             //实例
-            ISeacher seacher = (ISeacher) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ProxySearcher");
+            ISeacher seacher = (ISeacher)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ProxySearcher");
             seacher.DoSearch("QAQ", "OvO");
         }
+
+        #endregion
+        #region ChainOfResponsibility
 
         static void ChainOfResponsibility()
         {
@@ -307,7 +350,7 @@ namespace design_pattern
 
             //创建订单
             PurchaseRequest A, B, C, D, E;
-            A = new PurchaseRequest(46600,10001,"A");
+            A = new PurchaseRequest(46600, 10001, "A");
             B = new PurchaseRequest(80000, 10002, "B");
             C = new PurchaseRequest(406600, 10003, "C");
             D = new PurchaseRequest(4666600, 10004, "D");
@@ -323,20 +366,24 @@ namespace design_pattern
             a.ProcessRequest(E);
         }
 
+        #endregion
+        #region Command
         static void Command()
         {
             FunButton fb = new FunButton();
 
-            fb.Command = (Command) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "HComman");
+            fb.Command = (Command)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "HComman");
 
             fb.Click();
 
-            fb.Command = (Command) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "EComman");
+            fb.Command = (Command)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "EComman");
 
             fb.Click();
         }
 
+        #endregion
 
+        #region Interpreter
         static void Interpreter()
         {
             string instruction = "down run 90 and left move 20 and up move 5";
@@ -348,6 +395,9 @@ namespace design_pattern
 
             Console.WriteLine(outstr);
         }
+
+        #endregion
+        #region Iterater
 
         static void Iterater()
         {
@@ -422,6 +472,9 @@ namespace design_pattern
             EnumTest.Process(pList);
         }
 
+        #endregion
+        #region Mediator
+
         static void Mediator()
         {
             //ConcreteMediator mediator = new ConcreteMediator();
@@ -455,6 +508,8 @@ namespace design_pattern
             list.Changed();
         }
 
+        #endregion
+        #region Memento
         static void Memento()
         {
             //MementoCaretaker mc = new MementoCaretaker();
@@ -484,9 +539,6 @@ namespace design_pattern
             Redo(chess, index);
         }
 
-        #region Memento
-
-
         public static void Play(Chessman chess)
         {
             mc.SetMemento(chess.Save());
@@ -511,7 +563,7 @@ namespace design_pattern
         }
 
         #endregion
-
+        #region Observer
         static void Observer()
         {
             AllyControlCenter acc = new ConcreteAllyControlCenter("ppppp");
@@ -534,13 +586,11 @@ namespace design_pattern
             acc.Join(p5);
 
             p1.BeAttacked(acc);
-                
+
             TestEvent test = new TestEvent();
             Program program = new Program(test);
             test.Method();
         }
-
-        #region Observer
 
         public Program(TestEvent test)
         {
@@ -560,9 +610,19 @@ namespace design_pattern
 
         #endregion
 
+        #region State
+
         static void State()
         {
 
         }
+
+        #endregion
+
+        #region 
+
+        
+
+        #endregion
     }
 }
