@@ -43,7 +43,7 @@ namespace design_pattern
             //Memento();//19备忘录
             //Observer();//20观察者
             //State();//21状态
-            Strategy();//22策略
+            //Strategy();//22策略
             TemplateMethod();//23模板方法
             Visitor();//24访问者
             Console.ReadLine();
@@ -651,6 +651,39 @@ namespace design_pattern
 
         static void Strategy()
         {
+            MovieTicket mt = new MovieTicket();
+            double originalPrice = 60f;
+            double currentPrice;
+
+            mt.Price = originalPrice;
+            Console.WriteLine("原始价格为：{0}",originalPrice);
+            Console.WriteLine("-----------------------");
+
+            Discount discount = (StudentDiscount) Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "StudentDiscount");
+
+            mt.SetDiscount(discount);
+
+            currentPrice = mt.Price;
+
+            Console.WriteLine("打折后价格为：{0}", currentPrice);
+            Console.WriteLine("-----------------------");
+
+            discount = (ChildrenDiscount)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "ChildrenDiscount");
+
+            mt.SetDiscount(discount);
+
+            currentPrice = mt.Price;
+
+            Console.WriteLine("打折后价格为：{0}", currentPrice);
+            Console.WriteLine("-----------------------");
+
+            discount = (VIPDiscount)Assembly.Load(CXJStr).CreateInstance(nameSpaceStr + "VIPDiscount");
+
+            mt.SetDiscount(discount);
+
+            currentPrice = mt.Price;
+
+            Console.WriteLine("打折后价格为：{0}", currentPrice);
 
         }
 
