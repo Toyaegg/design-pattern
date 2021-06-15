@@ -614,14 +614,39 @@ namespace design_pattern
 
         static void State()
         {
+            Account acc = new Account("MoMo",0f);
+            acc.Deposit(1000);
+            acc.Withdraw(2000);
+            acc.Deposit(3000);
+            acc.Withdraw(4000);
+            acc.Withdraw(1000);
+            acc.ComputeInterest();
 
+            //////////////////////////////////////////////共享状态////////////////////////////////////////////////
+
+            Switch s1, s2;
+            s1 = new Switch("S1");
+            s2 = new Switch("S2");
+
+            s1.On();
+            s2.On();
+            s1.Off();
+            s2.Off();
+            s1.On();
+            s2.On();
+
+            //////////////////////////////////////////////使用环境类实现状态转换////////////////////////////////////////////////
+
+            Screen screen = new Screen();
+            screen.Onclick();
+            screen.Onclick();
+            screen.Onclick();
         }
 
         #endregion
-
         #region 
 
-        
+
 
         #endregion
     }
